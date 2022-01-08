@@ -16,6 +16,7 @@ current_year = date.today().year
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
+print(os.environ.get("SECRET_KEY"))
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
@@ -23,6 +24,8 @@ Bootstrap(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL",  "sqlite:///blog.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
+app.config['WTF_CSRF_SECRET_KEY'] = os.environ.get("SECRET_KEY")
 
 # decorators
 
