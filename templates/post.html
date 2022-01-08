@@ -46,7 +46,7 @@
                       <img src="{{ comment.author.email | gravatar }}" alt="picture"/>
                     </div>
                     <div class="commentText">
-                      {% if comment.parent_post.id == 1 %}
+                      {% if user.id == 1 %}
                       <a href="{{url_for('delete_comment', comment_id=comment.id) }}">✘</a>
                       {% endif %}
                       <p>{{comment.text|safe}}</p>
