@@ -18,9 +18,7 @@ app = Flask(__name__)
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
-Secret_Key = os.urandom(33)
-
-app.config['SECRET_KEY'] = Secret_Key
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 
 # CONNECT TO DB
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL",  "sqlite:///blog.db")
